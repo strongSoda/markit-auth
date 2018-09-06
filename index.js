@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => res.sendFile('auth.html', { root : __dirname}));
+app.get('/googlecf10e4fff13219ad', (req, res) => res.sendFile('googlecf10e4fff13219ad.html', { root : __dirname}));
 
 const port = process.env.PORT || 3000;
 app.listen(port , () => console.log('App listening on port ' + port));
@@ -76,3 +77,4 @@ app.get('/auth/google/callback',
   function(req, res) {
     res.redirect('/success');
   });
+
