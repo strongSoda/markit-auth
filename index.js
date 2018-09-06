@@ -51,29 +51,28 @@ app.get('/auth/facebook/callback',
     res.redirect('/success');
   });
 
- /*  GITHUB AUTH  */
+//  /*  GITHUB AUTH  */
  
-const GoogleStrategy = require('passport-google').Strategy;
+// const GooStrategy = require('passport-google').Strategy;
 
-const GOOGLE_CLIENT_ID = "283749a55df87e515f68"
-const GOOGLE_CLIENT_SECRET = "d15b3a66f47ac79f8fe0eb2bd585499f7a9b0aab";
+// const GOOGLE_CLIENT_ID = "283749a55df87e515f68"
+// const GOOGLE_CLIENT_SECRET = "d15b3a66f47ac79f8fe0eb2bd585499f7a9b0aab";
 
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-      return cb(null, profile);
-  }
-));
+// passport.use(new GoogleStrategy({
+//     clientID: GOOGLE_CLIENT_ID,
+//     clientSecret: GOOGLE_CLIENT_SECRET,
+//     callbackURL: "/auth/google/callback"
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
+//       return cb(null, profile);
+//   }
+// ));
 
-app.get('/auth/google/',
-  passport.authenticate('google'));
+// app.get('/auth/google/',
+//   passport.authenticate('google'));
 
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/error' }),
-  function(req, res) {
-    res.redirect('/success');
-  });
-
+// app.get('/auth/google/callback',
+//   passport.authenticate('google', { failureRedirect: '/error' }),
+//   function(req, res) {
+//     res.redirect('/success');
+//   });
