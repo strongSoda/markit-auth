@@ -36,7 +36,7 @@ const FACEBOOK_APP_SECRET = '58460d489b455d6d2bef5ac388630803';
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://www.example.com/auth/facebook/callback"
+    callbackURL: "https://www.example.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate(profile, function(err, user) {
