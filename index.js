@@ -36,15 +36,19 @@ const FACEBOOK_APP_SECRET = '58460d489b455d6d2bef5ac388630803';
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "/auth/facebook/callback"
+    callbackURL: "http://www.example.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
-      return cb(null, profile);
-  }
-));
+    User.findOrCreate(profile, function(err, user) {
+        if (err) { return done(err); }
+        done(null, user);
+      });
+    }
+  ));
 
-app.get('/auth/facebook',
-  passport.authenticate('facebook'));
+  app.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: ['read_stream', 'publish_actions'] })
+);
 
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/error' }),
