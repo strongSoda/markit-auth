@@ -92,6 +92,7 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
+      console.log(profile);
   }
 ));
 
