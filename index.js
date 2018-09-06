@@ -29,8 +29,8 @@ passport.deserializeUser(function(obj, cb) {
 
 const FacebookStrategy = require('passport-facebook').Strategy;
 
-const FACEBOOK_APP_ID = '286034521991068';
-const FACEBOOK_APP_SECRET = 'aeb0d683688140293062c5597a3bf778';
+const FACEBOOK_APP_ID = '254740235370990';
+const FACEBOOK_APP_SECRET = '58460d489b455d6d2bef5ac388630803';
 
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
