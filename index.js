@@ -80,7 +80,7 @@ app.get('/auth/github/callback',
 
    /*  Google AUTH  */
 
-const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 const GOOGLE_CLIENT_ID = "117086953488-qs31f60r87sr1mgktk7nl24s1cq9th0l.apps.googleusercontent.com"
 const GOOGLE_CLIENT_SECRET = "5i2V60Q1g3nBaxwCf0p7uK9C";
@@ -88,7 +88,7 @@ const GOOGLE_CLIENT_SECRET = "5i2V60Q1g3nBaxwCf0p7uK9C";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: "https://markit-auth.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
@@ -96,7 +96,7 @@ passport.use(new GoogleStrategy({
 ));
 
 app.get('/auth/google/',
-  passport.authenticate('google'));
+passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/error' }),
