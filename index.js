@@ -91,8 +91,8 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://markit-auth.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
       return cb(null, profile);
-      console.log(profile);
   }
 ));
 
