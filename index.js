@@ -101,5 +101,5 @@ passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('/success');
+    res.redirect('/');
   });
