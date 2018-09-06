@@ -88,7 +88,7 @@ const GOOGLE_CLIENT_SECRET = "tWX65G-nRERdbb6VszwIrI02";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://markit-auth.herokuapp.com/auth/google/callback"
+    callbackURL: "https://markit-auth.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
@@ -99,7 +99,7 @@ app.get('/auth/google/',
 passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+  passport.authenticate('google', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/success');
   });
