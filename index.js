@@ -88,7 +88,7 @@ const GOOGLE_CLIENT_SECRET = "5i2V60Q1g3nBaxwCf0p7uK9C";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://markit-auth.herokuapp.com/auth/google/callback"
+    callbackURL: "/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
