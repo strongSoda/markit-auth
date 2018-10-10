@@ -15,7 +15,7 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/success', (req, res) => res.send('Success'));
+app.get('/success', (req, res) => res.redirect('http://locallhost:5500'));
 app.get('/error', (req, res) => res.send("error logging in"));
 
 passport.serializeUser(function(user, cb) {
@@ -66,7 +66,7 @@ const GITHUB_CLIENT_SECRET = "d15b3a66f47ac79f8fe0eb2bd585499f7a9b0aab";
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:5500/auth/github/callback"
+    callbackURL: "	http://markit-auth.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
@@ -92,7 +92,7 @@ const GOOGLE_CLIENT_SECRET = "tWX65G-nRERdbb6VszwIrI02";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:5500/auth/google/callback"
+    callbackURL: "http://markit-auth.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile);
