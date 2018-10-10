@@ -66,7 +66,7 @@ const GITHUB_CLIENT_SECRET = "d15b3a66f47ac79f8fe0eb2bd585499f7a9b0aab";
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "	http://markit-auth.herokuapp.com/auth/github/callback"
+    callbackURL: "http://markit-auth.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
