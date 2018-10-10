@@ -15,7 +15,7 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/success', (req, res) => res.redirect('http://localhost:3000'));
+app.get('/success', (req, res) => res.send('Success'));
 app.get('/error', (req, res) => res.send("error logging in"));
 
 passport.serializeUser(function(user, cb) {
