@@ -15,7 +15,7 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/success', (req, res) => res.send("You have successfully logged in"));
+app.get('/success', (req, res) => res.redirect('http://localhost:3000'));
 app.get('/error', (req, res) => res.send("error logging in"));
 
 passport.serializeUser(function(user, cb) {
@@ -36,7 +36,7 @@ const FACEBOOK_APP_SECRET = '58460d489b455d6d2bef5ac388630803';
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "https://www.example.com/auth/facebook/callback"
+    callbackURL: "auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate(profile, function(err, user) {
@@ -66,7 +66,7 @@ const GITHUB_CLIENT_SECRET = "d15b3a66f47ac79f8fe0eb2bd585499f7a9b0aab";
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "/auth/github/callback"
+    callbackURL: "http://localhost:3000"
   },
   function(accessToken, refreshToken, profile, cb) {
       return cb(null, profile);
@@ -92,7 +92,7 @@ const GOOGLE_CLIENT_SECRET = "tWX65G-nRERdbb6VszwIrI02";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://markit-auth.herokuapp.com/auth/google/callback"
+    callbackURL: "http://localhost:3000"
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile);
