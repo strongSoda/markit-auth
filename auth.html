@@ -14,8 +14,12 @@
     crossorigin="anonymous">
 
   <div class="container">
+      <div class="logo">
+          <img src="./img/markit.png">
+        </div>
     <div class="frame">
       <div class="nav">
+       
         <ul class"links">
           <li class="signin-active"><a class="btn">Sign in</a></li>
         </ul>
@@ -33,20 +37,7 @@
           </div>
         </form>
 
-        <form class="form-signup" action="" method="post" name="form">
-          <label for="fullname">Full name</label>
-          <input class="form-styling" type="text" name="fullname" placeholder="" />
-          <label for="email">Email</label>
-          <input class="form-styling" type="text" name="email" placeholder="" />
-          <label for="password">Password</label>
-          <input class="form-styling" type="text" name="password" placeholder="" />
-          <label for="confirmpassword">Confirm password</label>
-          <input class="form-styling" type="text" name="confirmpassword" placeholder="" />
-          <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>
-        </form>
-      </div>
-    </div>
-
+      
     <a id="refresh" value="Refresh" onClick="history.go()">
       <svg class="refreshicon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px" y="0px" width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;"
@@ -587,6 +578,12 @@
       border-radius: 25px;
       box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1);
       padding: 13px 0 0 13px;
+    }
+
+    .logo{
+      margin-left: 35vw;
+      margin-bottom: 1.5em;
+
     }
 
     .refreshicon {
